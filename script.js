@@ -27,6 +27,23 @@ const products = [
 
 const catalog = document.getElementById("catalog");
 const filterButtons = document.querySelectorAll(".filter-btn");
+const toggleBtn = document.getElementById("theme-toggle");
+
+const savedTheme = localStorage.getItem("theme") || "dark";
+document.body.setAttribute("data-theme", savedTheme);
+
+toggleBtn.textContent = savedTheme === "dark" ? "☀️" : "🌙";
+
+toggleBtn.addEventListener("click", () => {
+  const current = document.body.getAttribute("data-theme");
+
+  const newTheme = current === "dark" ? "light" : "dark";
+
+  document.body.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+
+  toggleBtn.textContent = newTheme === "dark" ? "☀️" : "🌙";
+});
 
 function renderProducts(category) {
   catalog.innerHTML = "";

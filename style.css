@@ -1,3 +1,32 @@
+:root {
+  --bg: #0f0f0f;
+  --text: #ffffff;
+  --card: #1a1a1a;
+  --border: #222;
+  --subtext: #888;
+  --button-bg: #ffffff;
+  --button-text: #000000;
+
+  /* tambahan biar konsisten */
+  --overlay: rgba(0, 0, 0, 0.7);
+  --overlay-light: rgba(0, 0, 0, 0.2);
+  --glass: rgba(15, 15, 15, 0.7);
+}
+
+body[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #111111;
+  --card: #f5f5f5;
+  --border: #ddd;
+  --subtext: #555;
+  --button-bg: #111;
+  --button-text: #fff;
+
+  --overlay: rgba(255, 255, 255, 0.7);
+  --overlay-light: rgba(255, 255, 255, 0.2);
+  --glass: rgba(255, 255, 255, 0.7);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,10 +35,14 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: #0f0f0f;
-  color: #fff;
+  background: var(--bg);
+  color: var(--text);
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
+/* NAVBAR */
 .navbar {
   position: sticky;
   top: 0;
@@ -21,23 +54,40 @@ body {
 
   padding: 16px 40px;
 
-  background: rgba(15, 15, 15, 0.7);
+  background: var(--glass);
   backdrop-filter: blur(10px);
-  transition: 0.3s;
+  border-bottom: 1px solid var(--border);
 }
 
 .navbar.scrolled {
-  background: rgba(0, 0, 0, 0.95);
+  background: var(--bg);
+}
+
+/* TOGGLE */
+#theme-toggle {
+  margin-left: 15px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#theme-toggle:hover {
+  background: var(--text);
+  color: var(--bg);
 }
 
 .logo {
   letter-spacing: 3px;
 }
 
+/* FILTER BUTTON */
 .filter-btn {
-  border: 1px solid #444;
+  border: 1px solid var(--border);
   background: transparent;
-  color: #aaa;
+  color: var(--subtext);
   padding: 6px 12px;
   margin-left: 10px;
   cursor: pointer;
@@ -46,43 +96,15 @@ body {
 
 .filter-btn:hover,
 .filter-btn.active {
-  background: #fff;
-  color: #000;
+  background: var(--button-bg);
+  color: var(--button-text);
 }
 
+/* HERO */
 .hero-carousel {
   height: 80vh;
   position: relative;
   overflow: hidden;
-}
-
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: 1s;
-}
-
-.slide.active {
-  opacity: 1;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(100%);
-}
-
-.overlay {
-  position: absolute;
-  bottom: 20%;
-  left: 10%;
-}
-
-.overlay h2 {
-  font-size: 48px;
 }
 
 .slides {
@@ -100,7 +122,6 @@ body {
     opacity 1s ease,
     transform 1s ease;
   transform: scale(1.05);
-  z-index: 0;
 }
 
 .slide.active {
@@ -120,9 +141,10 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+  background: linear-gradient(to top, var(--overlay), var(--overlay-light));
 }
 
+/* HERO TEXT */
 .overlay {
   position: absolute;
   bottom: 20%;
@@ -137,10 +159,10 @@ body {
 }
 
 .overlay p {
-  color: #ccc;
-  font-size: 16px;
+  color: var(--subtext);
 }
 
+/* NAV BUTTON HERO  */
 .prev,
 .next {
   position: absolute;
@@ -151,13 +173,13 @@ body {
   height: 50px;
 
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border);
 
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--glass);
   backdrop-filter: blur(6px);
 
-  color: white;
-  font-size: 24px;
+  color: var(--text);
+  font-size: 22px;
   font-weight: bold;
 
   display: flex;
@@ -172,33 +194,34 @@ body {
 .prev {
   left: 30px;
 }
-
 .next {
   right: 30px;
 }
 
 .prev:hover,
 .next:hover {
-  background: white;
-  color: black;
+  background: var(--button-bg);
+  color: var(--button-text);
   transform: translateY(-50%) scale(1.1);
-  border-color: white;
 }
 
+/* SECTION */
 section {
   padding: 80px 40px;
 }
 
+/* ABOUT */
 .about {
   text-align: center;
 }
 
 .about p {
-  color: #aaa;
+  color: var(--subtext);
   max-width: 600px;
   margin: auto;
 }
 
+/* CATALOG */
 .catalog {
   margin-top: -40px;
   display: grid;
@@ -206,8 +229,9 @@ section {
   gap: 30px;
 }
 
+/* CARD */
 .card {
-  background: #1a1a1a;
+  background: var(--card);
   border-radius: 12px;
   overflow: hidden;
   transform: translateY(20px);
@@ -235,21 +259,25 @@ section {
   padding: 20px;
 }
 
+/* CTA */
 .cta {
   text-align: center;
-  background: #111;
+  background: var(--card);
 }
 
 .cta button {
   margin-top: 20px;
   padding: 12px 24px;
-  background: white;
+  background: var(--button-bg);
+  color: var(--button-text);
   border: none;
   cursor: pointer;
 }
 
+/* FOOTER */
 .footer {
-  background: #0a0a0a;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
   padding: 60px 40px 30px;
 }
 
@@ -265,7 +293,7 @@ section {
 
 .footer p,
 .footer li {
-  color: #888;
+  color: var(--subtext);
   font-size: 14px;
 }
 
@@ -279,13 +307,13 @@ section {
 }
 
 .footer li:hover {
-  color: #fff;
+  color: var(--text);
   transform: translateX(5px);
 }
 
 .footer-bottom {
   text-align: center;
   margin-top: 40px;
-  color: #666;
+  color: var(--subtext);
   font-size: 12px;
 }
