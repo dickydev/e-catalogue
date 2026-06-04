@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Catalog Monochrome</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <h1 class="logo">CATALOG</h1>
+      <nav>
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="fashion">Fashion</button>
+        <button class="filter-btn" data-category="tech">Tech</button>
+        <button class="filter-btn" data-category="accessories">
+          Accessories
+        </button>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-carousel">
+      <div class="slides">
+        <div class="slide active">
+          <img src="https://picsum.photos/1600/900?grayscale&random=11" />
+          <div class="overlay">
+            <h2>Minimal Style</h2>
+            <p>Black & White Aesthetic</p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="https://picsum.photos/1600/900?grayscale&random=12" />
+          <div class="overlay">
+            <h2>Modern Look</h2>
+            <p>Clean & Elegant</p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="https://picsum.photos/1600/900?grayscale&random=13" />
+          <div class="overlay">
+            <h2>Premium Feel</h2>
+            <p>Simple is Powerful</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="prev">‹</button>
+      <button class="next">›</button>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about">
+      <h2>About Our Catalog</h2>
+      <p>Kami menghadirkan produk minimalis dengan estetika monokrom modern.</p>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="catalog" id="catalog"></section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <h2>Upgrade Your Style</h2>
+      <button>Shop Now</button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div>
+          <h3>CATALOG</h3>
+          <p>Minimalist modern product showcase.</p>
+        </div>
+
+        <div>
+          <h3>Menu</h3>
+          <ul>
+            <li>Home</li>
+            <li>Products</li>
+            <li>About</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Social</h3>
+          <ul>
+            <li>Instagram</li>
+            <li>Twitter</li>
+            <li>LinkedIn</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">© 2026 Monochrome Catalog</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
